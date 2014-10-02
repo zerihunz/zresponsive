@@ -1,0 +1,108 @@
+<html>
+<head>
+	<link type="text/css" href="jquery.jscrollpane.css" rel="stylesheet" media="all" />
+	<style type="text/css">
+/*	::-webkit-scrollbar {
+    width: 8px;
+}
+ 
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+}
+ 
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+    background: rgba(255,0,0,0.8); 
+    -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(255,0,0,0.4); 
+}*/
+		.media-container{
+			width:100%;
+			margin-top:3px;
+			border:1px solid black;
+			height:75px;
+			float:left;
+			text-wrap:none;
+		}
+		.media-rect{
+			width:55px;
+			height:64px;
+			border:1px solid black;
+			position:relative;
+			left:2px;
+			top:2px;
+			float:left;
+			margin-right:2px;
+			font-family:'Open Sans',arial;
+		}
+		.media-rect span{
+			cursor: pointer;
+			color: #666;
+			display: block;
+			font-size: 10px;
+			font-weight: normal;
+			line-height: 0.9;
+			position: absolute;
+			right: 2px;
+			top: 2px;
+			z-index: 100;
+		}
+		.media-rect span:hover{
+			cursor: pointer;
+			color: #ff0000;
+			display: block;
+			font-size: 10px;
+			font-weight: normal;
+			line-height: 0.9;
+			position: absolute;
+			right: 2px;
+			top: 2px;
+			z-index: 100;
+		}
+	</style>
+	<script src="jquery-1.11.0.min.js"></script>
+		<script src="jScrollPane.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+	    $( ".trig" ).click(function() {
+	    	var d = parseInt($(this).html());
+		    $(".media-container").append("<div class='media-rect'><span class='media-rect-close'>X</span>"+d+"</div>");
+		});		
+		$(".media-container").on('click', '.media-rect-close',function(){			
+			//alert();
+			$(this).parent().hide();
+		});
+		$(function(){
+			$('.scroll-pane').jScrollPane();			
+		});
+	});		
+	</script>	
+</head>
+<body>
+<span class='trig'>1</span>
+<div class="media-container">
+	<div class="scroll-pane horizontal-only jspScrollable" style="height:75px;overflow:hidden;">
+		<div class="media-rect" id="sth">
+    		<span onclick="document.getElementById('sth').style.display='none'">X</span>    	
+		</div>
+		<div class='media-rect'><span class='media-rect-close'>X</span></div>
+	</div>		
+</div>
+
+
+<div class="scroll-pane horizontal-only jspScrollable" style="border:1px solid black;width:150px;height:auto;overflow:hidden;">
+<p style="width:250%;">
+By using overflow-x, we can create scroll bars when the contents of this div are wider than the container. By setting this paragraph to 250 percent, it is 250 percent wider than the parent container - forcing an overflow. 
+</p>
+</div>
+
+
+</body>
+</html>
